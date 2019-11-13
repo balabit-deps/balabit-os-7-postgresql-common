@@ -1,3 +1,16 @@
+postgresql-common (190ubuntu0.1) bionic-security; urgency=medium
+
+  * SECURITY UPDATE: Privilege Escalation via Arbitrary Directory Creation
+    - pg_ctlcluster: Drop privileges before creating socket and stats temp
+      directories outside /var/run/postgresql. The default configuration is
+      not affected by this change. Users with directories on volatile
+      storage (tmpfs) in other locations have to make sure the parent
+      directory is writable for the cluster owner.
+    - Thanks to Rich Mirch and Christoph Berg.
+    - CVE-2019-3466
+
+ -- Marc Deslauriers <marc.deslauriers@ubuntu.com>  Wed, 13 Nov 2019 10:21:57 -0500
+
 postgresql-common (190) unstable; urgency=medium
 
   * Move packaging repository to salsa.debian.org
